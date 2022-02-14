@@ -1,0 +1,70 @@
+# -*- coding: utf-8 -*-
+np.varにおいてddof=0とすると標本分散
+ddof=1とすると不遍分散
+
+デフォルト値の違い
+x.varは不遍分散、x.stdは√不偏分散
+np.varは標本分散、np.stdは√標本分散
+
+pandasのデータフレーム構造の骨組み
+
+my_df=pd.DataFrame({
+    'name':['A','B','C','D'],
+    'english':[60,70,80,90],
+    'math':[70,80,90,100],
+    'gender':['f','m','f','m']
+})
+
+csvファイルの読み込み
+（変数名）=pd.read_csv('ファイル名.csv')
+csvファイルの書き込み
+(変数名).to_csv('ファイル名.csv',index=False)
+日本語の場合は括弧内の最後にencoding='UTF-8'を入れる
+
+複数の値をmapを使って代入する。
+代入するときはスペースを開けて入れる。
+a,b,c,d,e,f=map(int,input("スペースをあけて値をそれぞれ入れてください。:").split()) 
+
+
+#defの使い方
+
+def hello():
+    print('Hello')
+
+hello()
+
+Helloが返ってくる。
+
+
+def add(a,b):
+    x=a+b
+    return x
+
+x=add(3,4)
+print(x)
+
+これで7が返ってくる。
+
+#heatmapping
+
+    ary1=np.random.rand(100)
+    ary2=ary1.reshape(10,10)
+
+    im=plt.imshow(ary2)
+    plt.colorbar(im);
+
+    plt.show()
+
+#save fig
+
+    x=np.arange(-np.pi,np.pi,0.1)
+    plt.plot(x,np.cos(x),label='cos(x)')
+    plt.plot(x,np.sin(x),label='sin(x)')
+    plt.legend()
+    plt.title('curve of sin and cos')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.grid(True)
+    plt.show()
+
+    plt.savefig('cos_sin.png');
