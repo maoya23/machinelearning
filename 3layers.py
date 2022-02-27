@@ -8,6 +8,14 @@ def sigmoid(x):
 def identity_function(x):   #恒等関数の定義
     return x
 
+def softmax(a): #ソフトマックス関数の定義
+    c=np.max(a)
+    exp_a=np.exp(a-c)   #オーバーフロー対策
+    sum_exp_a=np.sum(exp_a)
+    y=exp_a/sum_exp_a
+    return y
+
+
 def init_network():
     network={}
     network['W1']=np.array([[0.1,0.3,0.5],[0.2,0.4,0.6]])
@@ -37,3 +45,4 @@ x=np.array([1.0,0.5])   #xは入力層の値
 y=forward(network,x)
 
 print(y)
+
